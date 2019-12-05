@@ -5,7 +5,7 @@
     }
 
     .glow{
-        box-shadow: inset 0 0 12px 4px #ff6c00;
+        box-shadow: inset 0 0 12px 4px #00ffe1;
     }
 
     .hidden{
@@ -13,13 +13,13 @@
     }
 
     #menu{
-        background-color: #3d3d3d;
+        background-color: #77b0c6;
         min-width: 170px;
     }
 
     #menu > .menuHeader{
-        color: #e3f7ff;
-        border-bottom: 1px solid #7f878b;
+        color: #ffffff;
+        border-bottom: 1px solid #ffffff;
         font-size: 1.2em;
         padding: 16px 16px 4px 15px;
     }
@@ -42,7 +42,7 @@
     }
 
     .menuList > a:hover{
-        color: #ff0000;
+        color: #f69b3a;
     }
 
     #main{
@@ -68,10 +68,10 @@
     }
 
     .miningOption:first-child{
-        background-color: #0eafc7;
+        background-color: #303a51;
     }
     .miningOption:last-child{
-        background-color: #2f3536;
+        background-color: #303a51;
     }
     .miningOptionNum{
         font-size: 6em;
@@ -84,7 +84,7 @@
     }
 
     .miningOptionInstructions > div:first-child{
-        font-size: 2.4em;
+        font-size: 1.8em;
     }
     .miningOptionInstructions > div:last-child{
         margin-top: 20px;
@@ -128,7 +128,7 @@
         left: 50%;
         margin-left: -375px;
         position: absolute;
-        background-color: #000000;
+        background-color: #303a51;
     }
     #coinInfo .coinInfoName{
         text-transform: capitalize;
@@ -193,7 +193,7 @@
                 return false;
             })()
         }}
-        <div class="menuHeader">Coin-Switching Ports</div>
+        <div class="menuHeader">Puertos de la moneda</div>
         {{?}}
 
         <div class="menuList">
@@ -226,17 +226,23 @@
         </div>
     </div>
 
-
+    <div id="main">
+        <a href="#" class="miningOption" id="nompAppDownload">
+            <div class="miningOptionNum">1.</div>
+            <div class="miningOptionInstructions">
+                <div>Descargue sus programas de minado</div>
+                <div></div>
+            </div>
         </a>
         <div id="orHolder">
             <div id="orLine"></div>
+            <div id="orText"></div>
         </div>
         <a href="#" class="miningOption" id="coinGlowTrigger">
-            <div class="miningOptionNum"></div>
+            <div class="miningOptionNum">2.</div>
             <div class="miningOptionInstructions">
-                <div>Select a coin for connection details</div>
-                <div>Configurations for each coin are available for advanced miners</div>
-                <div>Not Use Walletaddress.NameWorking !!!!!!!!!</div>
+                <div>Seleccione su monena para la ver la configuracion</div>
+                <div></div>
             </div>
         </a>
     </div>
@@ -246,15 +252,15 @@
 
 <div id="coinInfo" class="hidden">
     <a href="#" id="coinInfoClose">×</a>
-    <div><span class="coinInfoName"></span> Configuration:</br>Not Use Walletaddress.NameWorking !!!!!!!!!</div>
+    <div><span class="coinInfoName"></span> Configuracion:</div>
     <div id="coinInfoRows">
         <div id="coinInfoRowKeys">
-            <div>Username:</div>
-            <div>Password:</div>
+            <div>Usuario:</div>
+            <div>Contraseña:</div>
         </div>
         <div id="coinInfoRowValues">
-            <div id="coinInfoUsername"></div>
-            <div>x</div>
+            <div>La direccion de tu wallet</div>
+            <div>Cualquier cosa (Ejemplo: x)</div>
         </div>
     </div>
 </div>
@@ -306,7 +312,7 @@
 
     $('#nompAppDownload').click(function(event){
         event.preventDefault();
-        alert('NOMP App development still in progress...');
+        alert('Visita la pagina https://andes-coin.com/descargas/');
         return false;
     });
 </script>
