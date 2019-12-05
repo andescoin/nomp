@@ -146,13 +146,14 @@ var pool = module.exports = function pool(options, authorizeFn){
 
         var generateProgress = function(){
 
-            _this.daemon.cmd('getblockchaininfo', [], function(results) {
+            var cmd =  'getinfo';
+            _this.daemon.cmd(cmd, [], function(results) {
                 var blockCount = results.sort(function (a, b) {
                     return b.response.blocks - a.response.blocks;
                 })[0].response.blocks;
 
                 //get list of peers and their highest block height to compare to ours
-                _this.daemon.cmd('getpeerinfo', [], function(results){
+                _this.daemon.cmd('getinfo', [], function(results){
 
                     var peers = results[0].response;
                     var totalBlocks = peers.sort(function(a, b){
@@ -369,12 +370,15 @@ var pool = module.exports = function pool(options, authorizeFn){
         var batchRpcCalls = [
             ['validateaddress', [options.address]],
             ['getdifficulty', []],
-            ['getblockchaininfo', []],
-            ['getnetworkinfo', []],
             ['getmininginfo', []],
             ['submitblock', []]
         ];
 
+        if (options.coin.hasGetInfo) {
+            batchRpcCalls.push(['getinfo', []]);
+        } else {
+            batchRpcCalls.push(['getinfo', []], ['getinfo', []]);
+        }
         _this.daemon.batchCmd(batchRpcCalls, function(error, results){
             if (error || !results){
                 emitErrorLog('Could not start pool, error with init batch RPC call: ' + JSON.stringify(error));
@@ -423,13 +427,18 @@ var pool = module.exports = function pool(options, authorizeFn){
                 }
             })();
 
-            options.testnet = (rpcResults.getblockchaininfo.chain === 'test') ? true : false;
+            options.testnet = rpcResults.getinfo.testnet;
 
-            options.protocolVersion = rpcResults.getnetworkinfo.protocolversion;
+            options.protocolVersion = rpcResults.getinfo.protocolversion;
+
+            var difficulty = rpcResults.getinfo.difficulty;
+            if (typeof(difficulty) == 'object') {
+                difficulty = difficulty['proof-of-work'];
+            }
 
             options.initStats = {
-                connections: rpcResults.getnetworkinfo.connections,
-                difficulty: rpcResults.getblockchaininfo.difficulty * algos[options.coin.algorithm].multiplier,
+                connections: (rpcResults.getinfo.connections),
+                difficulty: difficulty * algos[options.coin.algorithm].multiplier,
                 networkHashRate: rpcResults.getmininginfo.networkhashps
             };
 
