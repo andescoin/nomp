@@ -21,7 +21,7 @@
     <script src="/static/main.js"></script>
     <link rel="stylesheet" href="/static/style.css">
 
-    <title>SSVPOOL</title>
+    <title>AndesCoin</title>
 
 </head>
 
@@ -30,31 +30,37 @@
 <header>
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
 
-        <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;SSVPOOL</a>
+        <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;AndesCoin</a>
 
         <ul>
             <li class="{{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/getting_started">
                     <i class="fa fa-rocket"></i>&nbsp;
-                    Getting Started
+                    Empezar
                 </a>
             </li>
             <li class="{{? it.selected === 'stats' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/stats">
                     <i class="fa fa-bar-chart-o"></i>&nbsp;
-                    Graph Stats
+                    Graficas Estadisticas
                 </a>
             </li>
             <li class="{{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/tbs">
                     <i class="fa fa-table"></i>&nbsp;
-                    Tab Stats
+                    Tablas Estadisticas
                 </a>
             </li>
             <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
                 <a class="hot-swapper" href="/workers">
                     <i class="fa fa-cogs"></i>&nbsp;
-                    Workers Stats
+                    Estadisticas de los Mineros
+                </a>
+            </li>
+            <li class="{{? it.selected === 'api' }}pure-menu-selected{{?}}">
+                <a class="hot-swapper" href="/api">
+                    <i class="fa fa-code"></i>&nbsp;
+                    API
                 </a>
             </li>
         </ul>
@@ -62,20 +68,25 @@
 </header>
 
 <main>
-    {{=it.page}}
+   {{=it.page}} 
 </main>
 
 
 <footer>
 
+    <div>
+        Esta pool fue desarrollado por AndesCoin y su grupo de desarrolladores, basado en el  projecto&nbsp;<a target="_blank" href="https://github.com/zone117x/node-open-mining-portal/"> creado por Matthew Little </a>&nbsp; y con licencia de &nbsp;<a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a>
+    </div>
+    <div>
+        <i class="fa fa-heart"></i>&nbsp; Si quieres ayudar a esta pagina puedes realizar donaciones &nbsp;<i class="fa fa-btc"></i>&nbsp;<p align="center">Arepa: AZdjm3DGTP9n5mjmztzpb1ctKrW7PKCEaL</p>
+        <p align="center">Andes: ANF3TQsByZ74cqbUqCM5vEgHxJYH2pzEiB</p><p align="center">Boli: bbyW15SLMukHGhJuUwG7xX3JXF3mMRRwPb</p>
+    </div>
     <div id="communityFooter">
-        Contact Admin SSVPOOL&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="mailto:skzipa@windowslive.com">E-Mail</a>
+        Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="https://twitter.com/">@AndesCoin</a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a target="_blank" href="https://www.facebook.com/skzipa">Facebook</a>
-            </div>
- <div>
-        This site is powered by the open source&nbsp;<a target="_blank" href="https://github.com/zone117x/node-open-mining-portal/">NOMP</a>&nbsp;
-        project created by Matthew Little and licensed under the&nbsp;<a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL</a>
+        <a target="_blank" href="https://www.facebook.com">/coinandes</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <iframe src="http://ghbtns.com/github-btn.html?user=zone117x&repo=node-open-mining-portal&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
     </div>
 
 </footer>
