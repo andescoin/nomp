@@ -3,7 +3,7 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"], .pure-g-r [c
 }
 
 html{
-    background: #2d2d2d;
+    background: #017ec1;
     overflow-y: scroll;
 }
 
@@ -45,13 +45,13 @@ header > .home-menu > ul > li > a:hover, header > .home-menu > ul > li.pure-menu
 }
 
 main{
-    background-color: #ebf4fa;
+    background-color: #a2d6f9;
     position: relative;
 }
 
 footer{
     text-align: center;
-    color: #b3b3b3;
+    color: #000038;
     text-decoration: none;
     font-size: 0.8em;
     padding: 15px;
